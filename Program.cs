@@ -1,4 +1,9 @@
-﻿string userChoice = string.Empty;
+﻿using DateBaseOfTeachers.Models;
+using DateBaseOfTeachers.Services;
+ITeacherService teacherService = new TeacherService();
+
+
+string userChoice = string.Empty;
 do
 {
     Console.Clear();
@@ -15,19 +20,37 @@ do
     {
         case 1:
             {
-                Console.WriteLine("DatabAseOfTEachers");
+               Teacher[] teachers = teacherService.ShowTeachers();
+               if(teachers.Length == 0)
+                {
+                    Console.WriteLine("No teachers found");
+                }
+                else
+                {
+                    foreach(var teacher in teachers)
+                    {
+                        Console.WriteLine("-------------------------");
+                        Console.WriteLine($"Id: {teacher.Id}");
+                        Console.WriteLine($"Full Name: {teacher.FullName}");
+                        Console.WriteLine($"Subject: {teacher.Subject}");
+                        Console.WriteLine($"Experience: {teacher.Experience}");
+                        Console.WriteLine($"Address: {teacher.Address}");
+                    }
+                }
                 break;
             }
         
         case 2:
             {
-                Console.WriteLine("Add new TEacher");
+                Teacher teacher = new Teacher();
+                teacherService.AddTeacher(teacher);
                 break;
+
             }
         
         case 3:
             {
-                Console.WriteLine("Done");
+                Console.WriteLine("Programm Finished!!!");
                 break;
             }
         default:
