@@ -2,7 +2,13 @@
     namespace DateBaseOfTeachers.Services;
     public class TeacherService : ITeacherService
     {
-    public void CreateTeacher(Teacher teacher)
+    public void AddTeacher()
+    {
+        Teacher teacher = new Teacher();
+        
+    }
+
+    public void PrintTeacher(Teacher teacher)
     {
         throw new NotImplementedException();
     }
@@ -12,10 +18,7 @@
         throw new NotImplementedException();
     }
 
-    public void PrintTeacher(Teacher teacher)
-    {
-        throw new NotImplementedException();
-    }
+   
 
    
-    }
+}

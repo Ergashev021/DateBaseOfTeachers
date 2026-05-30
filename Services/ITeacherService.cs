@@ -3,7 +3,7 @@ using DateBaseOfTeachers.Models;
 namespace DateBaseOfTeachers.Services;
 public interface ITeacherService
 {
-    void CreateTeacher(Teacher teacher);
+    void AddTeacher(Teacher teacher);
     Teacher[] ShowTeachers();
     void PrintTeacher(Teacher teacher);
   
